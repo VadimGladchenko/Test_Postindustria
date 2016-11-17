@@ -82,7 +82,7 @@ class Main
         if((indicators[index] & (127 - digitalSymbols[testNumber])) != 0) return false;     //implication s->s* = (s* & !s)
         if((indicators[index] & badMask) != 0) return false;
 
-        badMask = indicators[index] ^ digitalSymbols[testNumber];
+        badMask |= indicators[index] ^ digitalSymbols[testNumber];
 
         if(index + 1 < indicators.length) {
             if (testNumber - 1 < 0) return false;
